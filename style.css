@@ -16,7 +16,7 @@ html {
 h1 {
     font-weight: 300;
     color: #f2f2f2;
-    font-size: 10vw;
+    font-size: 8vw;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 p {
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1rem;
 }
 
@@ -152,6 +152,12 @@ main {
     gap: 150px;
 }
 
+.text-part-hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .hero-section-container h1 {
     color: #f2f2f2;
     font-size: 10vw;
@@ -170,6 +176,7 @@ main {
     font-family: "Raleway", sans-serif;
     font-size: 1.25rem;
     font-weight: 200;
+    width: fit-content;
     text-align: center;
 }
 
@@ -179,7 +186,7 @@ main {
     gap: 10px;
     position: fixed;
     top: 50%;
-    right: 10%;
+    right: 7%;
     z-index: 9;
 }
 
@@ -188,7 +195,7 @@ main {
     background-color: #f2f2f2;
     padding: 10px;
     color: #1e1e1e;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: rgba(100, 100, 111, .4) 0px 7px 29px 0px;
 }
 
@@ -201,7 +208,7 @@ main {
     border: none;
     width: fit-content;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 /*atz-section*/
@@ -223,6 +230,7 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    border-radius: 20px;
 }
 
 .text-group {
@@ -231,8 +239,10 @@ main {
     left: 20%;
     transform: translate(-50%, -50%);
     backdrop-filter: blur(25px);
+    background-color: rgba(30, 30, 30, .5);
     max-width: 500px;
     padding: 30px;
+    border-radius: 20px;
 }
 
 .text-group h1 {
@@ -247,7 +257,6 @@ main {
     position: absolute;
     width: 100%;
     border-bottom: 1px solid #f2f2f2;
-
 }
 
 .text-group p {
@@ -292,10 +301,11 @@ main {
 }
 
 .card {
-    width: 290px;
+    max-width: 300px;
     height: 450px;
-    background-color: rgba(30, 30, 30, .8);
-    padding: 10px;
+    background-color: rgba(30, 30, 30, 1);
+    border-radius: 20px;
+    padding: 15px;
     display: grid; 
     align-items: center;
     grid-auto-columns: 1fr; 
@@ -310,7 +320,13 @@ main {
 .card h3 {
     padding-bottom: 30px;
     font-size: 2rem;
-    font-weight: 300;
+    font-weight: 600;
+    color: rgba(242, 242, 242, .5);
+    transition: color .3s ease;
+}
+
+.card:hover h3 {
+    color: rgba(242, 242, 242, 1);
 }
 
 .card p {
@@ -320,8 +336,8 @@ main {
 .afla-mai-multe-btn {
     font-family: 'Raleway', sans-serif;
     width: fit-content;
-    padding: 20px;
-    border-radius: 20px;
+    padding: 15px;
+    border-radius: 15px;
     border: none;
     background-color: #f2f2f2;
     cursor: pointer;
@@ -341,3 +357,23 @@ main {
     0% { transform: translateX(0); }
     100% { transform: translateX(10px); } 
 }
+
+.cursor {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.2);
+    filter: blur(45px);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform .2s ease;
+    transform: translate(-50%, -50%);
+}
+
+.cursor:hover {
+    width: 80px;
+    height: 80px;
+    border-width: 1px;
+    background-color: rgba(255, 0, 0, 1);
+}
+

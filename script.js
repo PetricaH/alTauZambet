@@ -14,3 +14,22 @@ document.querySelectorAll('.menu-links a').forEach(function(link) {
     });
 });
 
+const cardsContainer = document.querySelector('.cards-part-specializari');
+const cursor = document.querySelector(".cursor");
+
+cardsContainer.addEventListener("mousemove", function(event) {
+    if (event.target.closest('.cards-part-specializari')) {
+        cursor.style.display = "block";
+        cursor.style.left = event.clientX + "px";
+        cursor.style.top = event.clientY + "px";
+        
+        const card = event.target.closest(".card");
+        if (card) {
+            const cardRect = card.getBoundingClientRect();
+            cursor.style.bottom = cardRect.top + cardRect.height + "px";
+        }
+    } else {
+        cursor.style.display = "none";
+    }
+});
+
