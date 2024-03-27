@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f2f2f2;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-weight: 300;
+    color: #f2f2f2;
+    font-size: 10vw;
+}
+
+h1, h2, h3, h4, h5, p {
+    color: #f2f2f2;
+}
+
+p {
+    font-weight: 200;
+    font-size: 1rem;
+}
+
+/*menu part*/
+
+#logo {
+    width: 70px;
+    height: auto;
+}
+
+.header {
+    background-color: rgba(242, 242, 242, .1);
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15vw 0 15vw;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+}
+
+main {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.bar {
+    width: 30px;
+    height: 2px;
+    background-color: #1e1e1e;
+    margin: 3px 0;
+    transition: .4s;
+}
+
+.change .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.change .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.menu-links {
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #42DCA3;
+    width: 100%;
+    height: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: transform .3s ease-in-out;
+    z-index: 8;
+}
+
+.menu-links.show {
+    transform: translateY(100%);
+    transition: .3s ease-in;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.menu-links a {
+    margin-top: 15px;
+    margin-right: 50px;
+    text-decoration: none;
+    color: #1e1e1e;
+    text-align: right;
+    transition: background-color .3s;
+}
+
+.menu-links a:hover {
+    background-color: #42DCA3;
+}
+
+.menu.change + .menu-links {
+    display: flex;
+    transform: translateY(0);
+}
+
+#hero-section {
+    height: 100vh;
+    background: url(images/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero-section::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, .5), rgba(30, 30, 30, .5));
+}
+
+.hero-section-container {
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 150px;
+}
+
+.hero-section-container h1 {
+    color: #f2f2f2;
+    font-size: 10vw;
+    font-weight: 300;
+    text-align: center;
+}
+
+@media (min-width:1000px) {
+    h1 { 
+        font-size: 4vw !important;
+    }
+}
+
+.hero-section-container h5 {
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 200;
+    text-align: center;
+}
+
+.fixed-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    top: 50%;
+    right: 10%;
+    z-index: 9;
+}
+
+.fixed-btns span{
+    font-size: 30px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    color: #1e1e1e;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, .4) 0px 7px 29px 0px;
+}
+
+#appointment-btn {
+    background-color: #f2f2f2;
+    padding: 20px;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    border: none;
+    width: fit-content;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/*atz-section*/
+
+#about-atz-section {
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.atz-container {
+    background: url(images/Untitled-1.png);
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.text-group {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(25px);
+    max-width: 500px;
+    padding: 30px;
+}
+
+.text-group h1 {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.text-group h1::after {
+    content: "";
+    bottom: 20px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+
+}
+
+.text-group p {
+    padding-bottom: 20px;
+}
+
+/*specializari-section*/
+
+#atz-specializari-section {
+    margin-top: 100px;
+}
+
+.atz-specializari-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-group-specializari h1,
+.text-group-specializari p {
+    color: #1e1e1e;
+    max-width: 600px;
+    padding: 0 10px 0 10px;
+}
+
+.text-group-specializari h1 {
+    padding-bottom: 30px;
+}
+
+.text-group-specializari p {
+    padding-bottom: 20px;
+}
+
+/*cards*/
+
+.cards-part-specializari {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 290px;
+    height: 450px;
+    background-color: rgba(30, 30, 30, .8);
+    padding: 10px;
+    display: grid; 
+    align-items: center;
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1.7fr 0.3fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "."
+    "."; 
+}
+
+.card h3 {
+    padding-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.card p {
+    padding-bottom: 20px;
+}
+
+.afla-mai-multe-btn {
+    font-family: 'Raleway', sans-serif;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    justify-self: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.material-symbols-outlined.arrow {
+    vertical-align: middle;
+    margin-left: 5px;
+    display: inline-block;
+    animation: moveArrow 1s infinite alternate;
+}
+
+@keyframes moveArrow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(10px); } 
+}
