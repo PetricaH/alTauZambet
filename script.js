@@ -33,3 +33,96 @@ cardsContainer.addEventListener("mousemove", function(event) {
     }
 });
 
+//carousel
+
+document.addEventListener("DOMContentLoaded", function() {
+    const carousel = document.querySelector(".carousel");
+    const carouselTrack = document.querySelector(".carousel-track");
+    const carouselItems = document.querySelectorAll(".carousel-item");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    const indicators = document.querySelectorAll(".indicator");
+  
+    let currentIndex = 0;
+    let itemWidth = carouselItems[0].offsetWidth;
+  
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+  
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex < carouselItems.length - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+  
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener("click", () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+  
+    function updateCarousel() {
+      carouselTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+  
+      indicators.forEach((indicator, index) => {
+        if (index === currentIndex) {
+          indicator.classList.add("active");
+        } else {
+          indicator.classList.remove("active");
+        }
+      });
+    }
+  
+    // Dragging functionality
+    let isDragging = false;
+    let startPosition = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+  
+    carouselTrack.addEventListener("mousedown", dragStart);
+    carouselTrack.addEventListener("touchstart", dragStart);
+    carouselTrack.addEventListener("mouseup", dragEnd);
+    carouselTrack.addEventListener("touchend", dragEnd);
+    carouselTrack.addEventListener("mouseleave", dragEnd);
+    carouselTrack.addEventListener("mousemove", drag);
+    carouselTrack.addEventListener("touchmove", drag);
+  
+    function dragStart(event) {
+      if (event.type === "touchstart") {
+        startPosition = event.touches[0].clientX;
+      } else {
+        startPosition = event.clientX;
+      }
+  
+      isDragging = true;
+    }
+  
+    function drag(event) {
+      if (isDragging) {
+        const currentPosition = event.type === "touchmove" ? event.touches[0].clientX : event.clientX;
+        currentTranslate = prevTranslate + currentPosition - startPosition;
+      }
+    }
+  
+    function dragEnd() {
+      isDragging = false;
+  
+      const threshold = itemWidth / 5;
+  
+      if (currentTranslate > threshold && currentIndex > 0) {
+        currentIndex--;
+      } else if (currentTranslate < -threshold && currentIndex < carouselItems.length - 1) {
+        currentIndex++;
+      }
+  
+      updateCarousel();
+  
+      prevTranslate = currentTranslate;
+    }
+  });

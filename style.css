@@ -185,30 +185,105 @@ main {
     flex-direction: column;
     gap: 10px;
     position: fixed;
-    top: 50%;
-    right: 7%;
+    bottom: 5%;
+    right: 3%;
     z-index: 9;
 }
 
 .fixed-btns span{
     font-size: 30px;
-    background-color: #f2f2f2;
+    background-color: rgba(100,149,237, 1);
     padding: 10px;
-    color: #1e1e1e;
+    color: #f2f2f2;
     border-radius: 15px;
     box-shadow: rgba(100, 100, 111, .4) 0px 7px 29px 0px;
+    position: relative;
+}
+
+.fixed-btns span:hover {
+    transition-duration: .1s;
+    color: #1e1e1e;
+    background-color: #f2f2f2;
+}
+
+.fixed-btns span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 15px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all .3s;
+    box-shadow: 0 0 10px 40px #f2f2f2;
+}
+
+.fixed-btns span:active::after {
+    box-shadow: 0 0 0 0 #f2f2f2;
+    position: absolute;
+    border-radius: 15px;
+    left: 0;
+    top: 0;
+    opacity: .3;
+    transition: 0s;
+}
+
+.fixed-btns span:active {
+    top: 1px;
 }
 
 #appointment-btn {
-    background-color: #f2f2f2;
+    background-color: rgba(100,149,237, 1);
+    color: #f2f2f2;
     padding: 20px;
     font-size: 1rem;
     font-family: 'Raleway', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     border: none;
     width: fit-content;
     cursor: pointer;
     border-radius: 15px;
+    transition: color ease-in-out, background-color ease-in-out;
+    user-select: none;
+    transition-duration: .3s;
+    -webkit-transition-duration: .3s;
+    position: relative;
+}
+
+#appointment-btn:hover {
+    transition-duration: .1s;
+    color: #1e1e1e;
+    background-color: #f2f2f2;
+}
+
+#appointment-btn::after{
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 15px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all .3s;
+    box-shadow: 0 0 10px 40px #f2f2f2;
+}
+
+#appointment-btn:active::after {
+    box-shadow: 0 0 0 0 #f2f2f2;
+    position: absolute;
+    border-radius: 15px;
+    left: 0;
+    top: 0;
+    opacity: .3;
+    transition: 0s;
+}
+
+#appointment-btn:active {
+    top: 1px;
 }
 
 /*atz-section*/
@@ -339,23 +414,36 @@ main {
     padding: 15px;
     border-radius: 15px;
     border: none;
-    background-color: #f2f2f2;
+    background-color: rgba(100,149,237, 1);
     cursor: pointer;
     justify-self: center;
     position: relative;
     overflow: hidden;
+    color: #f2f2f2;
+    transition: background-color 0.3s, color 0.3s; /* Added transition */
+}
+
+.afla-mai-multe-btn:hover {
+    background-color: #f2f2f2; /* Changed background color on hover */
+    color: #1e1e1e; /* Changed text color on hover */
+    font-weight: 600;
 }
 
 .material-symbols-outlined.arrow {
     vertical-align: middle;
-    margin-left: 5px;
+    margin-left: 25px;
     display: inline-block;
-    animation: moveArrow 1s infinite alternate;
+}
+
+.afla-mai-multe-btn:hover .material-symbols-outlined.arrow {
+    animation: moveArrow .5s alternate; /* Added animation only on hover */
 }
 
 @keyframes moveArrow {
     0% { transform: translateX(0); }
-    100% { transform: translateX(10px); } 
+    50% { transform: translateX(160%); } /* Move arrow out of sight to the right */
+    51% { transform: translateX(-115%); } /* Move arrow to the left edge */
+    100% { transform: translateX(0); } /* Move arrow back to its initial position */
 }
 
 .cursor {
@@ -377,3 +465,79 @@ main {
     background-color: rgba(255, 0, 0, 1);
 }
 
+/*carousel*/
+
+#acreditari-atz-section {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.carousel-container {
+    position: relative;
+    width: 350px;
+    margin: 0 auto;
+  }
+  
+  .carousel {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel-item {
+    flex: 0 0 auto;
+    gap: 10px;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .carousel-item > img {
+    backdrop-filter: blur(25px);
+    border-radius: 15px;
+  }
+  
+  .carousel-container button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(100,149,237, 1);
+    color: #f2f2f2;
+}
+  
+  .prev {
+    left: -5vw;
+  }
+  
+  .next {
+    right: -5vw;
+  }
+  
+  .indicators {
+    display: flex;
+    justify-content: center;
+}
+  
+  .indicator {
+    width: 25px;
+    height: 5px;
+    border-radius: 15px;
+    background-color: rgba(100,149,237, .5);
+    margin: 10px 5px;
+    cursor: pointer;
+  }
+  
+  .indicator.active {
+    background-color: rgba(100,149,237, 1);
+  }
