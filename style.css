@@ -591,7 +591,7 @@ main {
 
 .accordion {
     backdrop-filter: blur(25px);
-    padding: 50px;
+    padding: 3vw;
     max-width: 800px;
 }
 
@@ -676,7 +676,7 @@ main {
   
   .accordion button[aria-expanded='true'] + .accordion-content {
     opacity: 1;
-    max-height: 9em;
+    max-height: 25em;
     transition: all 200ms linear;
     will-change: opacity, max-height;
   }
@@ -695,3 +695,102 @@ main {
     margin: 2em 0;
     color: #f2f2f2;
   }
+
+  /* informatii-contact-section */
+
+#informatii-contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.text-part-informatii-contact-section h1 {
+    padding-bottom: 50px;
+}
+
+.text-part-informatii-contact-section h1,
+.text-part-informatii-contact-section p {
+    color: #1e1e1e;
+}
+
+.text-part-informatii-contact-section > p {
+    max-width: 600px;
+    padding-bottom: 50px;
+}
+
+.images-of-cabinet {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 15px 10px; 
+    height: 80vw;
+    width: 80vw;
+}
+
+@media (min-width:1000px) {
+    .images-of-cabinet {
+        height: 35vw;
+        width: 35vw;
+    }
+}
+
+.images-of-cabinet .image-for-cabinet:nth-child(1) {
+    grid-column: span 2;
+    background: url('images/1.jpg');
+    border-radius: 20px 0 0;
+}
+
+.images-of-cabinet .image-for-cabinet:nth-child(2) {
+    grid-column: 3;
+    background: url('images/2.jpg');
+    grid-row: span 2;
+    border-radius: 0 20px 0 0;
+}
+
+.images-of-cabinet .image-for-cabinet:nth-child(3) {
+    grid-column: span 2;
+    background: url('images/3.jpg');
+    grid-row: span 2;
+    border-radius: 0 0 0 20px;
+}
+
+.images-of-cabinet .image-for-cabinet:nth-child(4) {
+    grid-column: 3;
+    background: url('images/4.jpg');
+    grid-row: span 1;
+    border-radius: 0 0 20px 0;
+}
+
+.image-for-cabinet {
+    background-position: center !important;
+    background-size: cover !important;
+    position: relative;
+}
+
+.location-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: last baseline;
+    gap: 20px;
+}
+
+.location-information a,
+.location-information p {
+    text-decoration: none;
+    color: black;
+}
+
+.icons-informatii-contact-section span{
+    font-size: 30px;
+}
+
+.icons-informatii-contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
