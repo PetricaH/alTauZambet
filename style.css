@@ -14,21 +14,9 @@ html {
 }
 
 h1 {
-    font-weight: 300;
     color: #f2f2f2;
-    font-size: 10vw;
-}
-
-@media (min-width:500px) {
-    h1 {
-        font-size: 5vw !important;
-    }
-}
-
-@media (min-width:1000px) {
-    h1 { 
-        font-size: 3vw !important;
-    }
+    font-size: 3rem;
+    font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -39,6 +27,7 @@ h1, h2, h3, h4, h5, p {
 p {
     font-weight: 300;
     font-size: 14px;
+    line-height: 1.4;
 }
 
 /*menu part*/
@@ -173,8 +162,8 @@ main {
 
 .hero-section-container h1 {
     color: #f2f2f2;
-    font-size: 10vw;
-    font-weight: 300;
+    font-size: 3rem;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -352,14 +341,23 @@ main {
 }
 
 .atz-specializari-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+    justify-items: center;
     align-items: center;
 }
 
+@media (min-width:1055px) {
+    .atz-specializari-container {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto;
+    }
+}
+
 .text-group-specializari {
-    max-width: 600px;
+    max-width: 500px;
 }
 
 .text-group-specializari h1,
@@ -385,17 +383,22 @@ main {
     justify-content: center;
 }
 
+@media (min-width:768px) {
+    .cards-part-specializari {
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+}
+
 .card {
     max-width: 300px;
-    height: 450px;
+    height: auto;
     background-color: rgba(30, 30, 30, 1);
     border-radius: 20px;
     padding: 15px;
     display: grid; 
     align-items: center;
-    grid-auto-columns: 1fr; 
-    grid-template-columns: 1fr; 
-    grid-template-rows: 1.7fr 0.3fr; 
+    grid-template-rows: 1fr 2fr 1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
     "."
@@ -403,19 +406,14 @@ main {
 }
 
 .card h3 {
-    padding-bottom: 30px;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 400;
     color: rgba(242, 242, 242, .5);
     transition: color .3s ease;
 }
 
 .card:hover h3 {
     color: rgba(242, 242, 242, 1);
-}
-
-.card p {
-    padding-bottom: 20px;
 }
 
 .afla-mai-multe-btn {
@@ -699,11 +697,25 @@ main {
   /* informatii-contact-section */
 
 #informatii-contact-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
     align-items: center;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
     margin-top: 100px;
+}
+
+@media (min-width: 768px) {
+    #informatii-contact-section {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .text-part-informatii-contact-section {
+        order: 2;
+    }
+
 }
 
 .text-part-informatii-contact-section h1 {
@@ -713,6 +725,10 @@ main {
 .text-part-informatii-contact-section h1,
 .text-part-informatii-contact-section p {
     color: #1e1e1e;
+}
+
+.text-part-informatii-contact-section {
+    min-width: 350px;
 }
 
 .text-part-informatii-contact-section > p {
@@ -729,10 +745,23 @@ main {
     width: 80vw;
 }
 
-@media (min-width:1000px) {
+@media (min-width:768px) {
+
     .images-of-cabinet {
-        height: 35vw;
-        width: 35vw;
+        height: 40vw;
+        width: 40vw;
+    }
+}
+
+@media (min-width:1150px) {
+    .images-of-cabinet {
+        height: 30vw;
+        width: 30vw;
+    }
+
+    main {
+        width: 70%;
+        margin-left: 15%;
     }
 }
 
@@ -771,9 +800,8 @@ main {
 
 .location-information {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: last baseline;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 20px;
 }
 
@@ -785,12 +813,4 @@ main {
 
 .icons-informatii-contact-section span{
     font-size: 30px;
-}
-
-.icons-informatii-contact-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
 }
