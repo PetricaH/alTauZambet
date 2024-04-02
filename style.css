@@ -123,6 +123,37 @@ main {
     transform: translateY(0);
 }
 
+/* menu horizontal links */
+
+@media only screen  and (min-width:930px) {
+    .menu {
+        display: none;
+    }
+
+    .menu-links {
+        position: relative;
+        top: auto;
+        right: auto;
+        background-color: transparent;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .menu-links.show {
+        transform: translateY(0);
+        height: auto;
+    }
+
+    .menu-links a {
+        margin: 0 20px;
+    }
+}
+
 #hero-section {
     height: 100vh;
     background: url(images/hero-bg.jpg);
@@ -188,7 +219,7 @@ main {
 
 .fixed-btns span{
     font-size: 30px;
-    background-color: rgba(100,149,237, 1);
+    background-color: rgb(47, 201, 155);
     padding: 10px;
     color: #f2f2f2;
     border-radius: 15px;
@@ -231,7 +262,7 @@ main {
 }
 
 #appointment-btn {
-    background-color: rgba(100,149,237, 1);
+    background-color:  rgb(47, 201, 155);
     color: #f2f2f2;
     padding: 20px;
     font-size: 1rem;
@@ -294,7 +325,7 @@ main {
 }
 
 .atz-container {
-    background: url(images/Untitled-1.png);
+    background: url(images/about-bg.png);
     width: 100%;
     height: 100%;
     background-position: center;
@@ -422,7 +453,7 @@ main {
     padding: 15px;
     border-radius: 15px;
     border: none;
-    background-color: rgba(100,149,237, 1);
+    background-color: rgb(47, 201, 155);
     cursor: pointer;
     justify-self: center;
     position: relative;
@@ -532,7 +563,7 @@ main {
     cursor: pointer;
     border: none;
     border-radius: 15px;
-    background-color: rgba(100,149,237, 1);
+    background-color:  rgb(47, 201, 155);
     color: #f2f2f2;
 }
   
@@ -555,46 +586,110 @@ main {
     width: 25px;
     height: 5px;
     border-radius: 15px;
-    background-color: rgba(100,149,237, .5);
+    background-color:  rgb(47, 201, 155, .3);
     margin: 10px 5px;
     cursor: pointer;
   }
   
   .indicator.active {
-    background-color: rgba(100,149,237, 1);
+    background-color:  rgb(47, 201, 155);
   }
 
 
 /* faq container */
 
 #intrebari-frecvente-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     align-items: center;
+    justify-items: center;
     margin-top: 100px;
     border-radius: 20px;
 }
 
+@media (max-width:768px) {
+    #intrebari-frecvente-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (min-width:769px) {
+    #intrebari-frecvente-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #intrebari-frecvente-section h1 {
+        grid-column: span 2;
+    }
+}
+
 #intrebari-frecvente-section h1 {
     color: #1e1e1e;
-    padding-top: 100px;
     text-align: center;
-    padding-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.intrebari-frecvente-text {
+    background: url('images/faq-background.jpg');
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.intrebari-frecvente-text::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, .5), rgba(30, 30, 30, .5));;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.intrebari-frecvente-text p {
+    color: #f2f2f2;
+    max-width: 400px;
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+.intrebari-frecvente-text p:nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-bottom: 25px;
+    border-left: 1px solid rgb(0, 255, 179);
+}
+
+.intrebari-frecvente-text p:nth-child(2) {
+    border-left: 1px solid rgb(0, 255, 179);
 }
 
 .accordion {
     backdrop-filter: blur(25px);
     padding: 3vw;
     max-width: 800px;
+    border-radius: 20px;
 }
 
 .accordion .accordion-item {
-    border-bottom: 1px solid rgba(100,149,237, .5);
+    border-bottom: 1px solid  rgb(47, 201, 155, .5);
   }
 
   .accordion .accordion-item button[aria-expanded='true'] {
-    border-bottom: 1px solid rgba(100,149,237, 1);
+    border-bottom: 1px solid  rgb(47, 201, 155);
   }
   
   .accordion button {
@@ -613,14 +708,14 @@ main {
   .accordion button:hover,
   .accordion button:focus {
     cursor: pointer;
-    color: rgba(100,149,237, 1);
+    color:  rgb(47, 201, 155);
   }
   
   .accordion button:hover::after,
   .accordion button:focus::after {
     cursor: pointer;
-    color: rgba(100,149,237, 1);
-    border: 1px solid rgba(100,149,237, 1);
+    color:  rgb(47, 201, 155);
+    border: 1px solid  rgb(47, 201, 155);
   }
   
   .accordion .accordion-title {
@@ -661,7 +756,7 @@ main {
   }
   
   .accordion button[aria-expanded='true'] {
-    color: rgba(100,149,237, 1);
+    color:  rgb(47, 201, 155);
   }
   
   .accordion button[aria-expanded='true'] .icon::after {
@@ -888,7 +983,7 @@ main {
 }
 
 .date-pacient-review-card p:nth-child(2) {
-    color: rgba(100,149,237, 1);
+    color: rgb(47, 201, 155);
     font-weight: bold;
     text-transform: uppercase;
 }
