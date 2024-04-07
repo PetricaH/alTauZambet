@@ -1214,10 +1214,6 @@ main {
     padding-bottom: 25px;
   }
 
-  body.modal-open {
-    overflow: hidden;
-  }
-
   #hour, #name, #phone {
     margin-bottom: 10px;
     border: none;
