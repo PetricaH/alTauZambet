@@ -743,7 +743,7 @@ main {
   .accordion button:hover,
   .accordion button:focus {
     cursor: pointer;
-    color:  rgb(47, 201, 155);
+    color:  #2fc99b;
   }
   
   .accordion button:hover::after,
@@ -1069,6 +1069,208 @@ main {
 .parteneri-container img:hover {
     filter: saturate(100%);
 }
+
+/*appointment section*/
+
+#appointment-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#appointment-section h1 {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    color: #1e1e1e;
+}
+
+#appointment-section p {
+    text-align: center;
+    color: #1e1e1e;
+    margin-bottom: 50px;
+}
+
+.wrapper{
+    width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  }
+  .wrapper header{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+  }
+  header .icons{
+    display: flex;
+  }
+  header .icons span{
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #2fc99b;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+  }
+  .icons span:last-child{
+    margin-right: -10px;
+  }
+  header .icons span:hover{
+    background: #f2f2f2;
+  }
+  header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+  }
+  .calendar{
+    padding: 20px;
+  }
+  .calendar ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+  }
+  .calendar .days{
+    margin-bottom: 20px;
+  }
+  .calendar li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+  }
+  .calendar .weeks li{
+    font-weight: 500;
+    cursor: default;
+  }
+  .calendar .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+  }
+  .days li.inactive{
+    color: #aaa;
+  }
+  .days li.active{
+    color: #fff;
+  }
+  .days li::before{
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .days li.active::before{
+    background: #2fc99b;
+  }
+  .days li:not(.active):hover::before{
+    background: #f2f2f2;
+  }
+/* CSS for modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+  }
+  
+  .modal-content {
+    background-color: #f2f2f2;
+    margin: 50% auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px; /* Adjust as needed */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .modal-content h3 {
+    color: #1e1e1e;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 25px;
+  }
+
+  body.modal-open {
+    overflow: hidden;
+  }
+
+  #hour, #name, #phone {
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 5px;
+    background-color: rgba(0, 255, 179, .1);
+  }
+
+  #hour:focus, #name:focus, #phone:focus {
+    transition: .2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: 1px #2fc99b solid;
+  }
+
+  #submit-btn {
+    margin-top: 20px;
+    width: fit-content;
+    align-self: center;
+    padding: 10px 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    background-color: #2fc99b;
+    color: #f2f2f2;
+    border: none;
+    border-radius: 15px;
+    transition: color ease-in-out, background-color ease-in-out;
+    user-select: none;
+    transition-duration: .2s;
+    -webkit-transition-duration: .2s;
+  }
+
+  #submit-btn:hover {
+    background-color: #1e1e1e;
+    color: #f2f2f2;
+  }
+
+  .close {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    color: #2fc99b;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
 /*footer-section*/
 

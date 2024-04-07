@@ -211,3 +211,128 @@ function toggleAccordion() {
 }
 
 items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+document.addEventListener("DOMContentLoaded", function () {
+  const daysTag = document.querySelector(".days"),
+    currentDate = document.querySelector(".current-date"),
+    prevNextIcon = document.querySelectorAll(".icons span");
+
+  let date = new Date(),
+    currYear = date.getFullYear(),
+    currMonth = date.getMonth();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
+      lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+      lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+      lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+    let liTag = "";
+
+    for (let i = firstDayofMonth; i > 0; i--) {
+      liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+
+    for (let i = 1; i <= lastDateofMonth; i++) {
+      let isToday =
+        i === date.getDate() &&
+        currMonth === new Date().getMonth() &&
+        currYear === new Date().getFullYear()
+          ? "active"
+          : "";
+      liTag += `<li class="${isToday}" data-date="${i}-${currMonth + 1}-${currYear}">${i}</li>`;
+    }
+
+    for (let i = lastDayofMonth; i < 6; i++) {
+      liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+    }
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+    daysTag.innerHTML = liTag;
+
+    const dayElements = document.querySelectorAll(".days li");
+    dayElements.forEach(day => {
+      day.addEventListener("click", () => {
+        if (!day.classList.contains("inactive")) {
+          const selectedDate = day.getAttribute("data-date");
+          showModal(selectedDate);
+        }
+      });
+    });
+  };
+
+  const showModal = (selectedDate) => {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "block";
+
+    const closeBtn = document.querySelector(".close");
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Add event listener to submit button
+    const submitBtn = document.getElementById("submit-btn");
+    submitBtn.addEventListener("click", () => {
+      submitAppointment(selectedDate);
+    });
+  };
+
+  const submitAppointment = (selectedDate) => {
+    const hour = document.getElementById("hour").value;
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+
+    // You can perform further validation here
+
+    const appointmentData = {
+      date: selectedDate,
+      hour: hour,
+      name: name,
+      phone: phone
+    };
+
+    // Simulate sending the data to the dentist cabinet
+    console.log("Appointment Data:", appointmentData);
+
+    // Close modal after submitting
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  };
+
+  renderCalendar();
+
+  prevNextIcon.forEach(icon => {
+    icon.addEventListener("click", () => {
+      currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+      if (currMonth < 0 || currMonth > 11) {
+        date = new Date(currYear, currMonth, new Date().getDate());
+        currYear = date.getFullYear();
+        currMonth = date.getMonth();
+      } else {
+        date = new Date();
+      }
+      renderCalendar();
+    });
+  });
+});

@@ -9,8 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Readex+Pro:wght@160..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="icon" type="image/x-icon" href="images/atz-logo.svg">
     <title>Al Tău Zâmbet</title>
 </head>
@@ -294,6 +295,58 @@
         <img src="logos/toshiba.svg" alt="Toshiba-logo">
         <img src="logos/xiaomi.svg" alt="Xiaomi-logo">
       </div>  
+    </section>
+
+    <section id="appointment-section">
+      <h1>Programează-te acum la un consult!</h1>
+      <p>Consultați programările disponibile și bucurați-vă de un tratament stomatologic performant.</p>
+      <div class="wrapper">
+        <header>
+          <p class="current-date"></p>
+          <div class="icons">
+            <span id="prev" class="material-symbols-rounded">chevron_left</span>
+            <span id="next" class="material-symbols-rounded">chevron_right</span>
+          </div>
+        </header>
+        <div class="calendar">
+          <ul class="weeks">
+            <li>Sun</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+          </ul>
+          <ul class="days"></ul>
+        </div>
+      </div>
+    
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close"><span class="material-symbols-outlined">
+            close
+            </span></span>
+          <h3>Programează-te.</h3>
+          <label for="hour">Selectează ora (09:00 - 17:00):</label>
+          <select id="hour">
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+          </select>
+          <label for="name">Nume:</label>
+          <input type="text" id="name" required>
+          <label for="phone">Număr Telefon:</label>
+          <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+          <button id="submit-btn">Programează</button>
+        </div>
+      </div>
     </section>
 
 </main>
