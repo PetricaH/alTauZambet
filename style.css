@@ -148,7 +148,7 @@ main {
 }
 
 .menu-links a:hover {
-    border-bottom: 1px solid rgb(47, 201, 155);
+    border-bottom: 2px solid rgb(47, 201, 155);
 }
 
 
@@ -392,7 +392,7 @@ main {
     left: 0;
     position: absolute;
     width: 100%;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 2px solid #f2f2f2;
 }
 
 .text-group p {
@@ -705,11 +705,11 @@ main {
     font-weight: 400;
     text-transform: uppercase;
     margin-bottom: 10px;
-    border-left: 1px solid rgb(0, 255, 179);
+    border-left: 2px solid rgb(0, 255, 179);
 }
 
 .intrebari-frecvente-text p:nth-child(2) {
-    border-left: 1px solid rgb(0, 255, 179);
+    border-left: 2px solid rgb(0, 255, 179);
 }
 
 .accordion {
@@ -720,11 +720,11 @@ main {
 }
 
 .accordion .accordion-item {
-    border-bottom: 1px solid  rgb(47, 201, 155, .5);
+    border-bottom: 2px solid  rgb(47, 201, 155, .5);
   }
 
   .accordion .accordion-item button[aria-expanded='true'] {
-    border-bottom: 1px solid  rgb(47, 201, 155);
+    border-bottom: 2px solid  rgb(47, 201, 155);
   }
   
   .accordion button {
@@ -1073,10 +1073,13 @@ main {
 /*appointment section*/
 
 #appointment-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     align-items: center;
+    justify-items: center;
+    margin-top: 100px;
+    border-radius: 20px;
+    gap: 50px;
 }
 
 #appointment-section h1 {
@@ -1090,6 +1093,25 @@ main {
     text-align: center;
     color: #1e1e1e;
     margin-bottom: 50px;
+}
+
+@media (min-width:1013px) {
+    #appointment-section h1,
+    #appointment-section p {
+        border-right: 2px solid rgb(0, 255, 179);
+        text-align: right;
+        max-width: 400px;
+        padding-right: 15px;
+    }
+
+    .wrapper {
+        justify-self: left;
+    }
+
+    .text-side-appointment-section {
+        justify-self: right;
+    }
+
 }
 
 .wrapper{
@@ -1214,6 +1236,10 @@ main {
     padding-bottom: 25px;
   }
 
+  body.modal-open {
+    overflow: hidden;
+  }
+
   #hour, #name, #phone {
     margin-bottom: 10px;
     border: none;
@@ -1272,8 +1298,40 @@ main {
 
 #footer-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 20px;
     margin-top: 100px;
+    height: 25vh;
+    background-color: #1e1e1e;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    border-right: 1px solid #2fc99b;
+    padding-right: 20px;
+}
+
+.container-footer h3,
+.container-footer p {
+    color: #f2f2f2;
+}
+
+.container-footer ul {
+    list-style: none;
+}
+
+.container-footer a {
+    text-decoration: none;
+    color: rgba(242, 242, 242, .5);
+}
+
+.container-footer a:hover {
+    text-decoration: none;
+    color: rgba(242, 242, 242, 1);
 }
