@@ -1194,7 +1194,7 @@ main {
   
   .modal-content {
     background-color: #f2f2f2;
-    margin: 15% auto;
+    margin: 50% auto;
     position: relative;
     display: flex;
     flex-direction: column;
